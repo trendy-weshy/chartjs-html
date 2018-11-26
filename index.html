@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Testing Module</title>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"
+    integrity="sha256-o8aByMEvaNTcBsw94EfRLbBrJBI+c3mjna/j4LrfyJ8="
+    crossorigin="anonymous"
+    defer></script>
+
+
+  <script src="/dist/app.bundle.js"></script>
+
+</head>
+
+<body>
+
+    <div class="chart-container" style="position: relative; height:400px; width:800px">
+      
+        <canvas id="lineChart" width="400" height="400"
+          data-chartjs-data='
+            [
+              { data:[{x:3, y:2},{x:2, y:7},{x:2, y:0},{x:-2, y:1},{x:2, y:6}], fill:"start", backgroundColor: "#f57c00", borderColor:"#f57c00", label:"Sample Datasets #1" },
+              { data:[-2,0,2,4,7], fill:"start", backgroundColor: "#000a12", borderColor:"#000a12", label:"Sample Datasets #2" }
+            ]
+          '
+          data-chartjs-labels='["category #1", "category #2", "category #3", "category #4", "category #5"]'
+          data-chartjs-properties="
+          {
+            spanGaps: false,
+            scales: {
+              yAxes: [{
+                stacked: true
+              }],
+              xAxes: [{
+                stacked: true
+              }]
+            }
+          }
+          "></canvas>
+
+
+        <canvas id="pieChart" width="400" height="400"
+          data-chartjs-data='[12,34,45,67,67]''
+          data-chartjs-labels='["category #1", "category #2", "category #3", "category #4", "category #5"]'></canvas>
+      
+    </div>
+
+  <script>
+    ChartHTML.Line.generate('#lineChart');
+    ChartHTML.Pie.generate('#pieChart');
+  </script>
+</body>
+
+</html>
